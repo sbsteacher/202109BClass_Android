@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    채팅 화면
+    https://whatisthenext.tistory.com/11
+ -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:orientation="vertical">
+
+    <!-- ////////////////////////////////////////////////// TOP [start] -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:padding="0dp"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:text="⬅" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:layout_marginLeft="10dp"
+            android:text="긴급 재난 문자"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="right">
+            <Button
+                android:padding="0dp"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:text="삭제" />
+        </LinearLayout>
+    </LinearLayout>
+    <!-- ////////////////////////////////////////////////// TOP [end] -->
+
+    <!-- ////////////////////////////////////////////////// 채팅 내용 [start] -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/black"
+        android:orientation="vertical">
+
+        <!-- 날짜 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <View android:layout_width="0dp"
+                android:layout_gravity="center_vertical"
+                android:layout_height="1dp"
+                android:layout_weight="1"
+                android:background="#ffffff"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:text="2016년 01월 18일 (월요일)"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"/>
+
+            <View android:layout_width="0dp"
+                android:layout_gravity="center_vertical"
+                android:layout_height="1dp"
+                android:layout_weight="1"
+                android:background="#ffffff"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="#5B9FD5"
+                android:padding="5dp"
+                android:src="@drawable/speaker2" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:padding="10dp"
+                android:text="[국민 안전처]\n18일18시 경기북부, 강원지역 한파경보,\n외출자제 건강유의, 동파방지, 화재예방 등\n피해없게 주의해 주십시오." />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:layout_gravity="bottom"
+                android:text="오후 3:11" />
+
+        </LinearLayout>
+
+
+        <!-- 날짜 (2) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <View android:layout_width="0dp"
+                android:layout_gravity="center_vertical"
+                android:layout_height="1dp"
+                android:layout_weight="1"
+                android:background="#ffffff"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:text="2016년 01월 18일 (월요일)"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"/>
+
+            <View android:layout_width="0dp"
+                android:layout_gravity="center_vertical"
+                android:layout_height="1dp"
+                android:layout_weight="1"
+                android:background="#ffffff"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="#5B9FD5"
+                android:padding="5dp"
+                android:src="@drawable/speaker2" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:padding="10dp"
+                android:text="[국민 안전처]\n18일18시 경기북부, 강원지역 한파경보,\n외출자제 건강유의, 동파방지, 화재예방 등\n피해없게 주의해 주십시오." />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:layout_gravity="bottom"
+                android:text="오후 3:11" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="#5B9FD5"
+                android:padding="5dp"
+                android:src="@drawable/speaker2" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:padding="10dp"
+                android:text="[국민 안전처]\n18일18시 경기북부, 강원지역 한파경보,\n외출자제 건강유의, 동파방지, 화재예방 등\n피해없게 주의해 주십시오." />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:layout_gravity="bottom"
+                android:text="오후 3:11" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+    <!-- ////////////////////////////////////////////////// 채팅 내용 [end] -->
+
+    <!-- ////////////////////////////////////////////////// input [start] -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:layout_weight="1"></EditText>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Send"></Button>
+
+    </LinearLayout>
+    <!-- ////////////////////////////////////////////////// input [end] -->
+</LinearLayout>
