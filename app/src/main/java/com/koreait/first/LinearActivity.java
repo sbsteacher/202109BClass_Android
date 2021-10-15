@@ -9,6 +9,7 @@ public class LinearActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_linear);
+        //setContentView(R.layout.activity_linear);
+        setContentView(R.layout.activity_linear_exam1);
     }
 }

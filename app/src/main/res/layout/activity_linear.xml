@@ -77,13 +77,13 @@
         <Button
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
+            android:layout_weight="1"
             android:text="버튼5-1"/>
 
         <Button
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
+            android:layout_weight="1"
             android:text="버튼5-2"/>
 
         <Button
@@ -117,7 +117,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="#4E9EDD"
+        android:background="#2980b9"
         android:gravity="right|center"
         android:orientation="horizontal">
 
