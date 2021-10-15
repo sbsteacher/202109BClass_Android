@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">첫번째앱!!</string>
+    <string name="tv_01">TextView01</string>
 </resources>
