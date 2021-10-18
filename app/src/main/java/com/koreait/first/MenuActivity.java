@@ -19,7 +19,7 @@ public class MenuActivity extends AppCompatActivity {
 
     public void call(View v) {
         Intent intent = new Intent(Intent.ACTION_VIEW
-                , Uri.parse("tel:"));
+                , Uri.parse("tel:010-1111-2222"));
         startActivity(intent);
     }
 
@@ -33,6 +33,8 @@ public class MenuActivity extends AppCompatActivity {
             c = LinearActivity.class;
         } else if(id == R.id.menuBtn3) {
             c = ConstraintActivity.class;
+        } else if(id == R.id.menuBtn4) {
+            c = WriteActivity.class;
         }
 
         Intent intent = new Intent(this, c);
