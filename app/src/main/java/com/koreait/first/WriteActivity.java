@@ -2,6 +2,7 @@ package com.koreait.first;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -18,6 +19,7 @@ import android.widget.TextView;
 import java.util.LinkedList;
 import java.util.List;
 
+//p.384
 public class WriteActivity extends AppCompatActivity {
 
     private EditText etMsg;
@@ -37,9 +39,14 @@ public class WriteActivity extends AppCompatActivity {
         rvList = findViewById(R.id.rvList);
 
         msgList = new LinkedList<>();
+        msgList.add("A");
+        msgList.add("B");
+        msgList.add("C");
+        msgList.add("D");
+        //LinearLayoutManager llm = new LinearLayoutManager(this);
 
-        LinearLayoutManager llm = new LinearLayoutManager(this);
-        rvList.setLayoutManager(llm);
+        //GridLayoutManager glm = new GridLayoutManager(this, 2);
+        //rvList.setLayoutManager(glm); //위에서 아래로 vertical
 
         sta = new SimpleTextAdapter(msgList);
         rvList.setAdapter(sta);
@@ -92,20 +99,19 @@ class SimpleTextAdapter extends RecyclerView.Adapter<SimpleTextAdapter.MyViewHol
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        Log.i("myLog", "onCreateViewHolder");
         View layoutView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_textview, parent, false);
         return new SimpleTextAdapter.MyViewHolder(layoutView);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        Log.i("myLog", "position : " + position);
         String str = list.get(position);
         holder.tvMsg.setText(str);
     }
 
     @Override
     public int getItemCount() {
-        Log.i("myLog", "getItemCount : " + list.size());
         return list.size();
     }
 
