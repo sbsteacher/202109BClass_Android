@@ -28,6 +28,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="send" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="refresh"
+            android:text="새로고침" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView

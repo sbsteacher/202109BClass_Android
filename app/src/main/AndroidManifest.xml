@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.First">
         <activity
+            android:name=".MyWriteActivity"
+            android:exported="false" />
+        <activity
             android:name=".WriteActivity"
             android:exported="false" />
         <activity

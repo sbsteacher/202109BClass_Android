@@ -22,9 +22,10 @@ public class WriteActivity extends AppCompatActivity {
 
     private EditText etMsg;
     private Button btnSend;
-    private RecyclerView rvList;
+    private RecyclerView rvList; // view 영역
 
-    private List<String> msgList;
+    private List<String> msgList; //data
+    private SimpleTextAdapter sta;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,12 +41,11 @@ public class WriteActivity extends AppCompatActivity {
         LinearLayoutManager llm = new LinearLayoutManager(this);
         rvList.setLayoutManager(llm);
 
-        SimpleTextAdapter sta = new SimpleTextAdapter(msgList);
+        sta = new SimpleTextAdapter(msgList);
         rvList.setAdapter(sta);
 
         //인터페이스 객체화 가능? 불가능? > 가능(2), 불가능,
         //1. class 작성 필요
-
         View.OnClickListener event2 = new MyOnClickListener();
         btnSend.setOnClickListener(event2);
 
@@ -57,7 +57,6 @@ public class WriteActivity extends AppCompatActivity {
         btnSend.setOnClickListener(event);
 
         //3. 가장 간략하게 작성
-
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) { //콜백 메소드 (Call Back)
@@ -65,18 +64,17 @@ public class WriteActivity extends AppCompatActivity {
                 Log.i("myLog", msg);
                 etMsg.setText("");
                 msgList.add(msg);
-                sta.notifyDataSetChanged();
+                //sta.notifyDataSetChanged();
             }
         });
-
-
     }
 
-
+    public void refresh(View v) {
+        sta.notifyDataSetChanged();
+    }
 }
 
 class MyOnClickListener implements View.OnClickListener {
-
     @Override
     public void onClick(View v) {
         Log.i("myLog", "111111");
@@ -100,18 +98,19 @@ class SimpleTextAdapter extends RecyclerView.Adapter<SimpleTextAdapter.MyViewHol
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+        Log.i("myLog", "position : " + position);
         String str = list.get(position);
         holder.tvMsg.setText(str);
     }
 
     @Override
     public int getItemCount() {
+        Log.i("myLog", "getItemCount : " + list.size());
         return list.size();
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder {
         TextView tvMsg;
-
         public MyViewHolder(View v) {
             super(v);
             tvMsg = v.findViewById(R.id.tvMsg);
