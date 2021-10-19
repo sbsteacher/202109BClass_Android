@@ -1,11 +1,14 @@
 package com.koreait.first.ch07;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.snackbar.Snackbar;
 import com.koreait.first.R;
 import java.util.LinkedList;
 import java.util.List;
@@ -32,6 +35,7 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.MyViewHold
         // holder.setItem(item);
 
         holder.setItem(items.get(position));
+
     }
 
     @Override
@@ -45,6 +49,16 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.MyViewHold
 
         public MyViewHolder(View v) {
             super(v);
+            v.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //클로저(closure)
+                    String name = tvName.getText().toString();
+                    String age = tvAge.getText().toString();
+
+                    Snackbar.make(v, name + ", " + age, Snackbar.LENGTH_SHORT).show();
+                }
+            });
             tvName = v.findViewById(R.id.tvName);
             tvAge = v.findViewById(R.id.tvAge);
         }
@@ -54,6 +68,12 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.MyViewHold
             // tvAge.setText(item.getAge()); //정수값은 R에서 관리하고 있는 정수값만 들어갈 수 있어요.
             // tvAge.setText(R.string.tv_01); //이렇게 stings.xml에서 관리하고 있는 문자열을 입력할 때 정수값을 사용한다.
             tvAge.setText(item.getAge() + "살");
+            /*
+            int aa = 100;
+            //R에서 관리하고 있는 정수값
+            int a = R.string.tv_01;
+            tvAge.setText(aa);
+             */
         }
     }
 }

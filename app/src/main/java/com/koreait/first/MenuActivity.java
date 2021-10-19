@@ -39,6 +39,8 @@ public class MenuActivity extends AppCompatActivity {
             c = WriteActivity.class;
         } else if(id == R.id.menuBtn5) {
             c = BookPersonActivity.class;
+        } else if(id == R.id.menuBtn6) {
+            c = ImageViewActivity.class;
         }
 
         Intent intent = new Intent(this, c);

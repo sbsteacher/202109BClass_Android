@@ -50,6 +50,13 @@
             android:layout_height="wrap_content"
             android:onClick="moveToActivity"
             android:text="Person"/>
+
+        <Button
+            android:id="@+id/menuBtn6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="moveToActivity"
+            android:text="이미지"/>
     </TableRow>
 
 </TableLayout>
