@@ -9,4 +9,7 @@ public interface RetrofitService {
 
     @GET("/v2/list")
     Call<List<PicsumVO>> getList();
+
+
+
 }
