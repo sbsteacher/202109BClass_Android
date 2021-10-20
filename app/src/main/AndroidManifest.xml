@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.First">
         <activity
+            android:name=".ch10.DailyBoxofficeActivity"
+            android:exported="false" />
+        <activity
             android:name=".picsum.PicsumActivity"
             android:exported="false" />
         <activity
