@@ -6,7 +6,7 @@ import retrofit2.http.Query;
 
 public interface KobisService {
     //일별 박스오피스
-    @GET("/boxoffice/searchDailyBoxOfficeList.json")
+    @GET("boxoffice/searchDailyBoxOfficeList.json")
     Call<BoxOfficeResultBodyVO> boxofficeSearchDailyBoxOfficeList
             (@Query("key") String key, @Query("targetDt") String targetDt);
 

@@ -1,13 +1,10 @@
 package com.koreait.first.ch10;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.util.Log;
-
 import com.koreait.first.R;
-import com.koreait.first.picsum.RetrofitService;
-
+import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -26,7 +23,7 @@ public class DailyBoxofficeActivity extends AppCompatActivity {
 
     private void network(String targetDt) {
         Retrofit rf = new Retrofit.Builder()
-                .baseUrl("https://www.kobis.or.kr/kobisopenapi/webservice/rest")
+                .baseUrl("https://www.kobis.or.kr/kobisopenapi/webservice/rest/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -39,8 +36,15 @@ public class DailyBoxofficeActivity extends AppCompatActivity {
             public void onResponse(Call<BoxOfficeResultBodyVO> call, Response<BoxOfficeResultBodyVO> res) {
                 if(res.isSuccessful()) {
                     BoxOfficeResultBodyVO vo = res.body();
+                    BoxOfficeResultVO resultVo = vo.getBoxOfficeResult();
+                    List<DailyBoxOfficeVO> list = resultVo.getDailyBoxOfficeList();
 
-                    Log.i("myLog", vo.getBoxOfficeResult().getDailyBoxOfficeList().size() + "개개");
+                    Log.i("myLog", list.size() + "개");
+
+
+                    for(DailyBoxOfficeVO item : list) {
+                        Log.i("myLog", item.getMovieNm());
+                    }
                 }
            }
 

@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.koreait.first.ch07.BookPersonActivity;
+import com.koreait.first.ch10.DailyBoxofficeActivity;
 import com.koreait.first.picsum.PicsumActivity;
 
 public class MenuActivity extends AppCompatActivity {
@@ -44,6 +45,8 @@ public class MenuActivity extends AppCompatActivity {
             c = ImageViewActivity.class;
         } else if(id == R.id.menuBtn7) {
             c = PicsumActivity.class;
+        } else if(id == R.id.menuBtn8) {
+            c = DailyBoxofficeActivity.class;
         }
 
         Intent intent = new Intent(this, c);
