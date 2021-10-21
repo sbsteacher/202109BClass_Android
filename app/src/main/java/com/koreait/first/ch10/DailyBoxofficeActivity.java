@@ -1,10 +1,17 @@
 package com.koreait.first.ch10;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.DatePicker;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.koreait.first.R;
 
@@ -49,7 +56,6 @@ public class DailyBoxofficeActivity extends AppCompatActivity {
 
                     Log.i("myLog", list.size() + "개");
 
-
                     for(DailyBoxOfficeVO item : list) {
                         Log.i("myLog", item.getMovieNm());
                     }
@@ -72,6 +78,56 @@ public class DailyBoxofficeActivity extends AppCompatActivity {
         network(date);
 
         Log.i("myLog", date);
+
+    }
+}
+
+class DailyBoxofficeAdapter extends RecyclerView.Adapter<DailyBoxofficeAdapter.MyViewHolder> {
+
+    private List<DailyBoxOfficeVO> list;
+
+    public void setList(List<DailyBoxOfficeVO> list) {
+        this.list = list;
+    }
+
+    @NonNull
+    @Override
+    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+        View v = inflater.inflate(R.layout.item_daily_boxoffice, parent, false);
+        return new MyViewHolder(v);
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+        DailyBoxOfficeVO vo = list.get(position);
+        holder.setItem(vo);
+
+        // holder.setItem(list.get(position));
+    }
+
+    @Override
+    public int getItemCount() {
+        return list == null ? 0 : list.size();
+    }
+
+
+    static class MyViewHolder extends RecyclerView.ViewHolder {
+        private TextView tvTitle;
+        private TextView tvAudienceCnt;
+
+        public MyViewHolder(View v) {
+            super(v);
+            tvTitle = v.findViewById(R.id.tvTitle);
+            tvAudienceCnt = v.findViewById(R.id.tvAudienceCnt);
+        }
+
+        public void setItem(DailyBoxOfficeVO vo) {
+            tvTitle.setText(vo.getMovieNm());
+            // TODO 관객수 설정
+        }
+
+
 
     }
 }
