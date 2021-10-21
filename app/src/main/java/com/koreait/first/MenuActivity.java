@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.koreait.first.ch07.BookPersonActivity;
 import com.koreait.first.ch10.DailyBoxofficeActivity;
 import com.koreait.first.picsum.PicsumActivity;
@@ -19,6 +20,14 @@ public class MenuActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
+
+        //문자(char) 11a
+        //문자열 "11a"
+        //int 1110
+        //int 0
+        int result = Utils.parseStringToInt("10", 0);
+        Log.i("myLog", "1:" + result);
+
     }
 
     public void call(View v) {
@@ -47,6 +56,12 @@ public class MenuActivity extends AppCompatActivity {
             c = PicsumActivity.class;
         } else if(id == R.id.menuBtn8) {
             c = DailyBoxofficeActivity.class;
+        }
+
+        if(c == null) {
+            //에러메시지 띄우고
+            Snackbar.make(v, "준비중입니다.", Snackbar.LENGTH_SHORT).show();
+            return;
         }
 
         Intent intent = new Intent(this, c);

@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.koreait.first.R;
+import com.koreait.first.Utils;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -59,8 +60,11 @@ public class DailyBoxofficeActivity extends AppCompatActivity {
             public void onResponse(Call<BoxOfficeResultBodyVO> call, Response<BoxOfficeResultBodyVO> res) {
                 if(res.isSuccessful()) {
                     BoxOfficeResultBodyVO vo = res.body();
+
                     BoxOfficeResultVO resultVo = vo.getBoxOfficeResult();
                     List<DailyBoxOfficeVO> list = resultVo.getDailyBoxOfficeList();
+
+                    List<DailyBoxOfficeVO> list2 = vo.getBoxOfficeResult().getDailyBoxOfficeList();
 
                     adapter.setList(list);
                     adapter.notifyDataSetChanged();
@@ -83,7 +87,6 @@ public class DailyBoxofficeActivity extends AppCompatActivity {
         network(date);
 
         Log.i("myLog", date);
-
     }
 }
 
@@ -129,11 +132,9 @@ class DailyBoxofficeAdapter extends RecyclerView.Adapter<DailyBoxofficeAdapter.M
 
         public void setItem(DailyBoxOfficeVO vo) {
             tvTitle.setText(vo.getMovieNm());
-            // TODO 관객수 설정
+            String numberComma = Utils.getNumberComma(vo.getAudiCnt());
+            tvAudienceCnt.setText(numberComma + "명");
         }
-
-
-
     }
 }
 
