@@ -27,13 +27,21 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class DailyBoxofficeActivity extends AppCompatActivity {
 
+    private DailyBoxofficeAdapter adapter;
+
     private DatePicker dpTargetDt;
+    private RecyclerView rvList;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_daily_boxoffice);
+        adapter = new DailyBoxofficeAdapter();
+
         dpTargetDt = findViewById(R.id.dpTargetDt);
+        rvList = findViewById(R.id.rvList);
+        rvList.setAdapter(adapter);
     }
 
     private void network(String targetDt) {
@@ -54,11 +62,8 @@ public class DailyBoxofficeActivity extends AppCompatActivity {
                     BoxOfficeResultVO resultVo = vo.getBoxOfficeResult();
                     List<DailyBoxOfficeVO> list = resultVo.getDailyBoxOfficeList();
 
-                    Log.i("myLog", list.size() + "개");
-
-                    for(DailyBoxOfficeVO item : list) {
-                        Log.i("myLog", item.getMovieNm());
-                    }
+                    adapter.setList(list);
+                    adapter.notifyDataSetChanged();
                 }
            }
 
