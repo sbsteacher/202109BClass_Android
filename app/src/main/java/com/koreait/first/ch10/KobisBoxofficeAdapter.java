@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.koreait.first.R;
 import com.koreait.first.Utils;
+import com.koreait.first.ch10.boxofficemodel.BoxOfficeVO;
 
 import java.util.List;
 

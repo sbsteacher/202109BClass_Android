@@ -9,6 +9,9 @@ import android.view.View;
 import android.widget.DatePicker;
 
 import com.koreait.first.R;
+import com.koreait.first.ch10.boxofficemodel.BoxOfficeResultBodyVO;
+import com.koreait.first.ch10.boxofficemodel.BoxOfficeResultVO;
+import com.koreait.first.ch10.boxofficemodel.BoxOfficeVO;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.koreait.first.ch10;
+package com.koreait.first.ch10.boxofficemodel;
 
 import java.util.List;
 

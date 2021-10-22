@@ -1,4 +1,4 @@
-package com.koreait.first.ch10;
+package com.koreait.first.ch10.boxofficemodel;
 
 public class BoxOfficeResultBodyVO {
     private BoxOfficeResultVO boxOfficeResult;
