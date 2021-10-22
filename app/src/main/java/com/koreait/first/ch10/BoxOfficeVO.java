@@ -1,6 +1,6 @@
 package com.koreait.first.ch10;
 
-public class DailyBoxOfficeVO {
+public class BoxOfficeVO {
     private String rank; //순위
     private String movieNm; //영화명
     private String openDt; //개봉일

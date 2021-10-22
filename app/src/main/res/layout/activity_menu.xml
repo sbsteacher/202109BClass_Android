@@ -81,12 +81,6 @@
             android:onClick="moveToActivity"
             android:text="주간영화순위"/>
 
-        <Button
-            android:id="@+id/menuBtn10"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="moveToActivity"
-            android:text="주말영화순위"/>
     </TableRow>
 
 </TableLayout>

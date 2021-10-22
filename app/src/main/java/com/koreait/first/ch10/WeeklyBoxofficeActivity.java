@@ -1,6 +1,5 @@
 package com.koreait.first.ch10;
 
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -8,23 +7,25 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.DatePicker;
+
 import com.koreait.first.R;
 
 import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class DailyBoxofficeActivity extends AppCompatActivity {
+public class WeeklyBoxofficeActivity extends AppCompatActivity {
 
     private KobisBoxofficeAdapter adapter;
 
     private DatePicker dpTargetDt;
     private RecyclerView rvList;
-
     private Retrofit rf;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,7 +45,7 @@ public class DailyBoxofficeActivity extends AppCompatActivity {
     private void network(String targetDt) {
         KobisService service = rf.create(KobisService.class);
         final String KEY = "1a0a7ecf96ad3364d8de70e91560767a";
-        Call<BoxOfficeResultBodyVO> call = service.boxofficeSearchDailyBoxOfficeList(KEY, targetDt);
+        Call<BoxOfficeResultBodyVO> call = service.searchWeeklyBoxOfficeList(KEY, targetDt);
 
         call.enqueue(new Callback<BoxOfficeResultBodyVO>() {
             @Override
@@ -53,14 +54,12 @@ public class DailyBoxofficeActivity extends AppCompatActivity {
                     BoxOfficeResultBodyVO vo = res.body();
 
                     BoxOfficeResultVO resultVo = vo.getBoxOfficeResult();
-                    List<BoxOfficeVO> list = resultVo.getDailyBoxOfficeList();
-
-                    List<BoxOfficeVO> list2 = vo.getBoxOfficeResult().getDailyBoxOfficeList();
+                    List<BoxOfficeVO> list = resultVo.getWeeklyBoxOfficeList();
 
                     adapter.setList(list);
                     adapter.notifyDataSetChanged();
                 }
-           }
+            }
 
             @Override
             public void onFailure(Call<BoxOfficeResultBodyVO> call, Throwable t) {
@@ -80,4 +79,13 @@ public class DailyBoxofficeActivity extends AppCompatActivity {
         Log.i("myLog", date);
     }
 }
+
+
+
+
+
+
+
+
+
 
