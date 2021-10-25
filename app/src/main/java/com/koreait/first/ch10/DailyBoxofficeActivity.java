@@ -28,6 +28,9 @@ public class DailyBoxofficeActivity extends AppCompatActivity {
     private RecyclerView rvList;
 
     private Retrofit rf;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
