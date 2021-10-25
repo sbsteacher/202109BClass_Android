@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -106,8 +107,21 @@ class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.MyViewHolde
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        MovieVO obj = list.get(position);
+        final MovieVO obj = list.get(position);
         holder.setItem(obj);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String movieCd = obj.getMovieCd();
+                Log.i("myLog", movieCd);
+                Intent intent = new Intent(v.getContext(), MovieDetailActivity.class);
+                intent.putExtra("movieCd", movieCd);
+                v.getContext().startActivity(intent);
+            }
+        });
+
+
     }
 
     @Override
