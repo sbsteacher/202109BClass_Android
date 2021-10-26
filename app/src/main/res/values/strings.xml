@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">첫번째앱!!</string>
     <string name="tv_01">TextView01</string>
+
+    <string name="actor_label_1">배우명 :</string>
+    <string name="actor_label_2">배우명(영어) :</string>
+    <string name="actor_label_3">배역 :</string>
+    <string name="actor_label_4">배역(영어) :</string>
+
 </resources>
